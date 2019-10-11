@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1588617266887122385}
   - component: {fileID: 2580406408403993634}
   - component: {fileID: 4358042402520668018}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2394831159432338179}
   - component: {fileID: 5042518526875875576}
   - component: {fileID: 9191028142294991831}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Sum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
