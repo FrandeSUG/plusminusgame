@@ -8,6 +8,14 @@ TagManager:
   - Blocks
   - GameManager
   - Combo
+  - Target
+  - Sum
+  - Timer
+  - GameOver
+  - Lifes
+  - Score
+  - LifesScore
+  - Stage
   layers:
   - Default
   - TransparentFX

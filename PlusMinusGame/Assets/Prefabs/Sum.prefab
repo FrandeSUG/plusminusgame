@@ -90,9 +90,10 @@ GameObject:
   - component: {fileID: 2394831159432338179}
   - component: {fileID: 5042518526875875576}
   - component: {fileID: 9191028142294991831}
+  - component: {fileID: 1962107038}
   m_Layer: 2
   m_Name: Sum
-  m_TagString: Untagged
+  m_TagString: Sum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,3 +155,17 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1962107038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7331149053467931865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a115b377e40392048a00e735b5dac6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  the_sum: 0
+  target: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7394171753297097865}
   - component: {fileID: 7394171753297097871}
   - component: {fileID: 7394171753297097870}
+  - component: {fileID: 1143433612}
   m_Layer: 0
   m_Name: Blocks
   m_TagString: Blocks
@@ -90,6 +91,24 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1143433612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394171753297097864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b2de47ad58b664db790bd7b6eb2fc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game_manager: {fileID: 0}
+  block_array: []
+  target: {fileID: 0}
+  sum: {fileID: 0}
+  combo: {fileID: 0}
+  timer: {fileID: 0}
 --- !u!1001 &15362308222054200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -687,11 +706,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block1
       objectReference: {fileID: 0}
-    - target: {fileID: 3887537915843028744, guid: c628f86d79c9950418e6a36deeafbbd9,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 422048087339980302, guid: c628f86d79c9950418e6a36deeafbbd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -796,11 +810,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6460164939883321891, guid: c628f86d79c9950418e6a36deeafbbd9,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c628f86d79c9950418e6a36deeafbbd9, type: 3}
