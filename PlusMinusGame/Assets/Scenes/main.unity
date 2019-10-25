@@ -675,8 +675,8 @@ RectTransform:
   - {fileID: 327310215}
   - {fileID: 140361122}
   - {fileID: 1984362324}
-  - {fileID: 5592036656056140093}
   - {fileID: 1084970224}
+  - {fileID: 5592036656056140093}
   - {fileID: 837222685}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -832,7 +832,7 @@ PrefabInstance:
     - target: {fileID: 1028041993569260440, guid: 260e82c09d237da4aabba05e8469b586,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1028041993569260440, guid: 260e82c09d237da4aabba05e8469b586,
         type: 3}
@@ -1194,7 +1194,7 @@ PrefabInstance:
     - target: {fileID: 8448451342597696828, guid: 7303f387dfb273f499445f321343af3e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8448451342597696828, guid: 7303f387dfb273f499445f321343af3e,
         type: 3}
