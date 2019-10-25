@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
 
     public bool is_game_over()
     {
-        if(target.target_number != sum.the_sum)
+        if(target.target_number != sum.the_sum || blocks.has_important())
         {
             lifes_score.decrement_lifes();
             if(lifes_score.the_lifes <= 0)

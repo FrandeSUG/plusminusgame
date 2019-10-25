@@ -33,6 +33,12 @@ public class lifes_score : MonoBehaviour
         transform.Find("Lifes").GetComponentInChildren<Text>().text = the_lifes.ToString();
     }
 
+    public void increment_lifes()
+    {
+        the_lifes += 1;
+        transform.Find("Lifes").GetComponentInChildren<Text>().text = the_lifes.ToString();
+    }
+
     public void reset_lifes_score()
     {
         the_lifes = 2;
