@@ -12,11 +12,13 @@ public class timer : MonoBehaviour
     public float count_down_timer = 6;
 
     [SerializeField] private blocks blocks;
+    [SerializeField] private refresh refresh;
 
     // Start is called before the first frame update
     void Start()
     {
         blocks = GameObject.FindGameObjectWithTag("Blocks").GetComponent<blocks>();
+        refresh = GameObject.FindGameObjectWithTag("Refresh").GetComponent<refresh>();
         the_timer = count_down_timer;
     }
 
@@ -36,6 +38,7 @@ public class timer : MonoBehaviour
     private void time_out_process()
     {
         blocks.end_process();
+        refresh.set_clickable(true);
         Debug.Log("ended");
     }
 

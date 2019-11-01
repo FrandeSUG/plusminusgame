@@ -11,11 +11,14 @@ public class game_over : MonoBehaviour
     float timer = 0;
     public int changing_size = 1;
     public int max_font_size = 70;
+
+    private AudioSource audio;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = gameObject.GetComponent<AudioSource>();
         animation_start = false;
         GetComponent<Image>().color = hide;
     }
@@ -28,6 +31,7 @@ public class game_over : MonoBehaviour
     // Public methods
     public void over_and_score(int score, int stage)
     {
+        audio.Play();
         GetComponent<Image>().color = show;
         transform.Find("Text").GetComponent<Text>().text = "Game Over";
         transform.Find("Score").GetComponent<Text>().text = "Score: " + score;

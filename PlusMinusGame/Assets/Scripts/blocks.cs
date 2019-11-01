@@ -14,12 +14,20 @@ public class blocks : MonoBehaviour
     [SerializeField] private timer timer;
     [SerializeField] private lifes_score lifes_score;
     [SerializeField] private stage stage;
+    [SerializeField] private refresh refresh;
+    [SerializeField] private ParticleSystem swipe;
+
+    public AudioClip for_generate;
+    public AudioClip for_refresh;
+
+    public AudioSource audio;
 
     public float end_buffer_time = 2f;
     public int locked_interval = 3;
     public int important_interval = 3;
+    public int important_count = 1;
     public int hp_drop_rate = 5;
-    public int refresh_drop_rate = 2;
+    public int refresh_drop_rate = 5;
 
 
     // Start is called before the first frame update
@@ -33,6 +41,9 @@ public class blocks : MonoBehaviour
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<timer>();
         lifes_score = GameObject.FindGameObjectWithTag("LifesScore").GetComponent<lifes_score>();
         stage = GameObject.FindGameObjectWithTag("Stage").GetComponent<stage>();
+        refresh = GameObject.FindGameObjectWithTag("Refresh").GetComponent<refresh>();
+        swipe = GameObject.FindGameObjectWithTag("Swipe").GetComponent<ParticleSystem>();
+        audio = gameObject.GetComponent<AudioSource>();
         generate_random_numbers();
         set_block_clickabable_array();
     }
@@ -57,6 +68,7 @@ public class blocks : MonoBehaviour
             block_array[i].refresh_number();
             block_array[i].index = i;
         }
+        set_block_clickabable_array();
     }
 
     public void set_block_clickabable_array()
@@ -66,6 +78,7 @@ public class blocks : MonoBehaviour
             if (block_array[i].special != block.SPECIAL.LOCKED) { block_array[i].GetComponent<block>().clickable = true; }
         }
     }
+
 
     public void set_block_unclickabable_array()
     {
@@ -87,7 +100,15 @@ public class blocks : MonoBehaviour
         timer.reset_timer();
         target.generate_target_number();
         sum.reset_the_sum();
+        play_particle();
+        audio.clip = for_generate;
+        audio.Play();
         Invoke("set_block_clickabable_array", end_buffer_time);
+    }
+
+    public void play_particle()
+    {
+        swipe.Play();
     }
 
     //Private methods
@@ -110,6 +131,7 @@ public class blocks : MonoBehaviour
                 {
                     if (i - 4 < 0)
                     {
+                        check_block_hprefresh(block_array[i]);
                         block_array[i].activated = false;
                         block_array[i].value = Random.Range(1, 9);
                         block_array[i].special = block.SPECIAL.NONE;
@@ -139,9 +161,18 @@ public class blocks : MonoBehaviour
 
     private void check_block_hprefresh(block block)
     {
-        if(block.hprefresh == block.HPREFRESH.HP) { lifes_score.increment_lifes(); }
-        if (block.hprefresh == block.HPREFRESH.REFRESH) { generate_random_numbers(); }
+        if(block.hprefresh == block.HPREFRESH.HP) { if (sum.the_sum == target.target_number) { lifes_score.increment_lifes(); } }
+        if (block.hprefresh == block.HPREFRESH.REFRESH) { if (sum.the_sum == target.target_number) { refresh.set_activation(true); } }
         block.hprefresh = block.HPREFRESH.NONE;
+    }
+
+    private bool refresh_exist()
+    {
+        for (int i = block_array.Length - 1; i >= 0; i--)
+        {
+            if(block_array[i].hprefresh == block.HPREFRESH.REFRESH) { return true; }
+        }
+        return false;
     }
 
     private void blocks_special()
@@ -167,7 +198,7 @@ public class blocks : MonoBehaviour
         // For important
         if (stage.the_stage % important_interval == 0)
         {
-            int count = stage.the_stage / important_interval; if (count >= block_array.Length / 4) { count = block_array.Length / 4; }
+            int count = important_count;
             int tries_allowed = block_array.Length * 10;
             while (count > 0 && tries_allowed > 0)
             {
@@ -201,7 +232,7 @@ public class blocks : MonoBehaviour
         }
 
         // For refresh
-        if (Random.Range(1, 101) <= refresh_drop_rate)
+        if (Random.Range(1, 101) <= refresh_drop_rate && !refresh.is_active && !refresh_exist())
         {
             int count = 1;
             int tries_allowed = block_array.Length * 10;

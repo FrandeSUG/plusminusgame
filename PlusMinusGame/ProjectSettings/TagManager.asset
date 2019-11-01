@@ -16,6 +16,8 @@ TagManager:
   - Score
   - LifesScore
   - Stage
+  - Refresh
+  - Swipe
   layers:
   - Default
   - TransparentFX

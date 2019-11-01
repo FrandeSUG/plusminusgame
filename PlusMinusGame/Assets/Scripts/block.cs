@@ -66,6 +66,7 @@ public class block : MonoBehaviour
                 transform.Find("Number").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Puzzle stage & settings GUI Pack/Image_pink/txt/" + value + ".png", typeof(Sprite));
                 break;
             case SPECIAL.LOCKED:
+                transform.Find("Hprefresh").gameObject.SetActive(false);
                 transform.Find("Number").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/locked.png", typeof(Sprite));
                 break;
             case SPECIAL.IMPORTANT:

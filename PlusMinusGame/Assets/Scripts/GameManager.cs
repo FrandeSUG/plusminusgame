@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private lifes_score lifes_score;
     [SerializeField] private game_over game_over;
     [SerializeField] private stage stage;
+    [SerializeField] private refresh refresh;
 
 
 
@@ -34,13 +35,14 @@ public class GameManager : MonoBehaviour
         lifes_score = GameObject.FindGameObjectWithTag("LifesScore").GetComponent<lifes_score>();
         game_over = GameObject.FindGameObjectWithTag("GameOver").GetComponent<game_over>();
         stage = GameObject.FindGameObjectWithTag("Stage").GetComponent<stage>();
+        refresh = GameObject.FindGameObjectWithTag("Refresh").GetComponent<refresh>();
     }
 
     // Public methods
     public void operate(int index, int value)
     {
-        if (!timer.count_down_start) { timer.count_down_start = true; Debug.Log("started"); }
-        Debug.Log("index = " + index.ToString() + "    value = " + value.ToString());
+        if (!timer.count_down_start) { timer.count_down_start = true; Debug.Log("started"); refresh.set_clickable(false); }
+
         if(sum.the_sum <= target.target_number)
         {
             sum.the_sum += value;

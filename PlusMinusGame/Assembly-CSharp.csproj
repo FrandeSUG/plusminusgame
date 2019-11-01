@@ -60,14 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\highest_score.cs" />
+    <Compile Include="Assets\master_audio.cs" />
     <Compile Include="Assets\Scripts\back.cs" />
     <Compile Include="Assets\Scripts\block.cs" />
     <Compile Include="Assets\Scripts\blocks.cs" />
     <Compile Include="Assets\Scripts\combo.cs" />
     <Compile Include="Assets\Scripts\game_over.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\highest_score.cs" />
     <Compile Include="Assets\Scripts\lifes_score.cs" />
+    <Compile Include="Assets\Scripts\refresh.cs" />
     <Compile Include="Assets\Scripts\stage.cs" />
     <Compile Include="Assets\Scripts\start.cs" />
     <Compile Include="Assets\Scripts\sum.cs" />

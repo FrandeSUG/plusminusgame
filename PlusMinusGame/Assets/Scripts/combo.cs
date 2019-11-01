@@ -11,10 +11,20 @@ public class combo : MonoBehaviour
     Color red = new Color(255f / 255f, 0 / 255f, 0 / 255f);
     Color yellow = new Color(255f / 255f, 254f / 255f, 59f / 255f);
     Color white = new Color(255f / 255f, 255f / 255f, 255f / 255f);
+    private AudioSource audio;
+
+    public AudioClip one;
+    public AudioClip two;
+    public AudioClip three;
+    public AudioClip four;
+    public AudioClip eight;
+    public AudioClip twelve;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = gameObject.GetComponent<AudioSource>();
         combo_text = gameObject.transform.Find("Text").GetComponent<Text>();
         combo_text.fontSize = font_size;
         combo_text.color = white;
@@ -48,6 +58,37 @@ public class combo : MonoBehaviour
     public void increment_combo()
     {
         count++;
+        if(count == 1)
+        {
+            audio.clip = one;
+            audio.Play();
+        }
+        else if (count == 2)
+        {
+            audio.clip = two;
+            audio.Play();
+        }
+        else if (count == 3)
+        {
+            audio.clip = three;
+            audio.Play();
+        }
+        else if (count == 4)
+        {
+            audio.clip = four;
+            audio.Play();
+        }
+        else if (count < 8)
+        {
+            audio.clip = eight;
+            audio.Play();
+        }
+        else
+        {
+            audio.clip = twelve;
+            audio.Play();
+        }
+        
     }
 
     public void reset_combo()
