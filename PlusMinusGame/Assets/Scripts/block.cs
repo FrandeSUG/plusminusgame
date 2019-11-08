@@ -51,7 +51,7 @@ public class block : MonoBehaviour
             clickable = false;
             activated = true;
             combo.increment_combo();
-            set_clicked_border(true);
+            set_clicked(true);
             special = SPECIAL.NONE;
             game_manager.operate(index, value);
         }
@@ -86,14 +86,20 @@ public class block : MonoBehaviour
                 transform.Find("Hprefresh").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon_100_03");
                 break;
         }
-        set_clicked_border(false);
+        set_clicked(false);
     }
 
     // Private methods
-    private void set_clicked_border(bool b)
+    private void set_clicked(bool b)
     {
-        if (b) { GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/ui_y_01"); }
-        else { GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/ui_g_01"); }
+        if (b) {
+            GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.3f);
+            transform.Find("Number").GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.3f);
+        }
+        else {
+            GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+            transform.Find("Number").GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        }
     }
 
 }
