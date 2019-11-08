@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class combo : MonoBehaviour
 {
     public int count = 0;
-    public int font_size = 30;
+    public int font_size = 135;
     Text combo_text;
     Color red = new Color(255f / 255f, 0 / 255f, 0 / 255f);
     Color yellow = new Color(255f / 255f, 254f / 255f, 59f / 255f);
@@ -43,7 +43,7 @@ public class combo : MonoBehaviour
         {
             combo_text.gameObject.SetActive(true);
             combo_text.text = count.ToString() + " COMBO";
-            combo_text.fontSize = font_size + count;
+            combo_text.fontSize = font_size + 5;
             if(count > 5){combo_text.color = yellow;}
             if(count > 10){combo_text.color = red; }
 
@@ -94,7 +94,7 @@ public class combo : MonoBehaviour
     public void reset_combo()
     {
         count = 0;
-        font_size = 30;
+        font_size = 135;
         combo_text.color = white;
     }
 

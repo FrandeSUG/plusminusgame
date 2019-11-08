@@ -10,7 +10,7 @@ public class game_over : MonoBehaviour
     public bool animation_start;
     float timer = 0;
     public int changing_size = 1;
-    public int max_font_size = 70;
+    public int max_font_size = 280;
 
     private AudioSource audio;
     
@@ -61,8 +61,8 @@ public class game_over : MonoBehaviour
         }
         else
         {
-            if(transform.Find("HighestScore").GetComponent<Text>().fontSize >= max_font_size) { changing_size = -1; }
-            if (transform.Find("HighestScore").GetComponent<Text>().fontSize <= 60) { changing_size = 1; }
+            if(transform.Find("HighestScore").GetComponent<Text>().fontSize >= max_font_size) { changing_size = -2; }
+            if (transform.Find("HighestScore").GetComponent<Text>().fontSize <= 250) { changing_size = 2; }
             transform.Find("HighestScore").GetComponent<Text>().fontSize += changing_size;
             transform.Find("HighestStage").GetComponent<Text>().fontSize += changing_size;
             timer = 0;

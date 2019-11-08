@@ -8,7 +8,7 @@ public class timer : MonoBehaviour
 {
     public bool count_down_start = false;
     private float the_timer;
-    private int bar_max = 182;
+    private int bar_max = 780;
     public float count_down_timer = 6;
 
     [SerializeField] private blocks blocks;

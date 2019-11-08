@@ -91,6 +91,7 @@ MonoBehaviour:
   count_down_start: 0
   count_down_timer: 10
   blocks: {fileID: 0}
+  refresh: {fileID: 0}
 --- !u!1 &4779095078336100218
 GameObject:
   m_ObjectHideFlags: 0

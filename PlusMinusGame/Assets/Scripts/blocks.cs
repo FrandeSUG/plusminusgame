@@ -18,7 +18,9 @@ public class blocks : MonoBehaviour
     [SerializeField] private ParticleSystem swipe;
 
     public AudioClip for_generate;
+    public AudioClip for_decrement;
     public AudioClip for_refresh;
+    public Image hp_decrement;
 
     public AudioSource audio;
 
@@ -26,8 +28,8 @@ public class blocks : MonoBehaviour
     public int locked_interval = 3;
     public int important_interval = 3;
     public int important_count = 1;
-    public int hp_drop_rate = 5;
-    public int refresh_drop_rate = 5;
+    public int hp_drop_rate = 4;
+    public int refresh_drop_rate = 4;
 
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class blocks : MonoBehaviour
         audio = gameObject.GetComponent<AudioSource>();
         generate_random_numbers();
         set_block_clickabable_array();
+        damage_off();
     }
 
     //Public methods
@@ -94,14 +97,23 @@ public class blocks : MonoBehaviour
         if (game_manager.is_game_over()) { return; }
         if (target.target_number == sum.the_sum) { lifes_score.calculate_score(combo.count); stage.increment_stage(); }
 
+        if (target.target_number != sum.the_sum || has_important())
+        {
+            audio.clip = for_decrement;
+            damage_on();
+            Invoke("damage_off", 0.2f);
+        }
+        else
+        {
+            audio.clip = for_generate;
+            play_particle();
+        }
         blocks_movement();
         blocks_special();
         combo.reset_combo();
         timer.reset_timer();
         target.generate_target_number();
         sum.reset_the_sum();
-        play_particle();
-        audio.clip = for_generate;
         audio.Play();
         Invoke("set_block_clickabable_array", end_buffer_time);
     }
@@ -248,5 +260,15 @@ public class blocks : MonoBehaviour
                 tries_allowed--;
             }
         }
+    }
+
+    private void damage_on()
+    {
+        hp_decrement.color = new Color(1f, 0f, 0f, 0.5f);
+    }
+
+    private void damage_off()
+    {
+        hp_decrement.color = new Color(1f, 0f, 0f, 0f);
     }
 }

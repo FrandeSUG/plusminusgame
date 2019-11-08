@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private refresh refresh;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         if (!timer.count_down_start) { timer.count_down_start = true; Debug.Log("started"); refresh.set_clickable(false); }
 
-        if(sum.the_sum <= target.target_number)
+        if (sum.the_sum <= target.target_number)
         {
             sum.the_sum += value;
             sum.refresh_sum();
@@ -57,10 +56,11 @@ public class GameManager : MonoBehaviour
 
     public bool is_game_over()
     {
-        if(target.target_number != sum.the_sum || blocks.has_important())
+        if (target.target_number != sum.the_sum || blocks.has_important())
         {
             lifes_score.decrement_lifes();
-            if(lifes_score.the_lifes <= 0)
+
+            if (lifes_score.the_lifes <= 0)
             {
                 game_over.over_and_score(lifes_score.the_score, stage.the_stage);
                 return true;

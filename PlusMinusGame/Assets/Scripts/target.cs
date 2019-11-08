@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 
 public class target : MonoBehaviour
@@ -18,6 +17,6 @@ public class target : MonoBehaviour
     public void generate_target_number()
     {
         target_number = Random.Range(1, 9);
-        transform.Find("TargetNumber").GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Puzzle stage & settings GUI Pack/Image_red/txt/" + target_number + ".png", typeof(Sprite));
+        transform.Find("TargetNumber").GetComponent<Image>().sprite = Resources.Load<Sprite>("Puzzle stage & settings GUI Pack/Image_red/txt/" + target_number);
     }
 }

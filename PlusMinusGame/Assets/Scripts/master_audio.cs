@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class master_audio : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public class master_audio : MonoBehaviour
     void Start()
     {
         sfx = true;
-        transform.Find("SFX").GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon 512/icon_512_4_03.png", typeof(Sprite));
+        transform.Find("SFX").GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon 512/icon_512_4_03");
     }
 
     public void clicked()
@@ -26,14 +25,14 @@ public class master_audio : MonoBehaviour
             one.volume = 1f;
             two.volume = 1f;
             three.volume = 1f;
-            transform.Find("SFX").GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon 512/icon_512_4_03.png", typeof(Sprite));
+            transform.Find("SFX").GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon 512/icon_512_4_03");
         }
         else
         {
             one.volume = 0;
             two.volume = 0;
             three.volume = 0;
-            transform.Find("SFX").GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon 512/icon_512_4_04.png", typeof(Sprite));
+            transform.Find("SFX").GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon 512/icon_512_4_04");
         }
     }
 }

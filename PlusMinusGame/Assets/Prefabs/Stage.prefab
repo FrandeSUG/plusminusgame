@@ -67,11 +67,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 23
+    m_FontSize: 133
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 133
     m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -167,3 +167,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efce8829cefd5a9449c3135b70f1095f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocks: {fileID: 0}
+  the_stage: 0

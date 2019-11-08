@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class block : MonoBehaviour
 {
@@ -63,14 +62,14 @@ public class block : MonoBehaviour
         switch (special)
         {
             case SPECIAL.NONE:
-                transform.Find("Number").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Puzzle stage & settings GUI Pack/Image_pink/txt/" + value + ".png", typeof(Sprite));
+                transform.Find("Number").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Puzzle stage & settings GUI Pack/Image_pink/txt/" + value);
                 break;
             case SPECIAL.LOCKED:
                 transform.Find("Hprefresh").gameObject.SetActive(false);
-                transform.Find("Number").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/locked.png", typeof(Sprite));
+                transform.Find("Number").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/locked");
                 break;
             case SPECIAL.IMPORTANT:
-                transform.Find("Number").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Puzzle stage & settings GUI Pack/Image_orange/Text/" + value + ".png", typeof(Sprite));
+                transform.Find("Number").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Puzzle stage & settings GUI Pack/Image_orange/Text/" + value);
                 break;
         }
         switch (hprefresh)
@@ -80,11 +79,11 @@ public class block : MonoBehaviour
                 break;
             case HPREFRESH.HP:
                 transform.Find("Hprefresh").gameObject.SetActive(true);
-                transform.Find("Hprefresh").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon_70_10.png", typeof(Sprite));
+                transform.Find("Hprefresh").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon_70_10");
                 break;
             case HPREFRESH.REFRESH:
                 transform.Find("Hprefresh").gameObject.SetActive(true);
-                transform.Find("Hprefresh").GetComponentInChildren<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon_100_03.png", typeof(Sprite));
+                transform.Find("Hprefresh").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon_100_03");
                 break;
         }
         set_clicked_border(false);
@@ -93,8 +92,8 @@ public class block : MonoBehaviour
     // Private methods
     private void set_clicked_border(bool b)
     {
-        if (b) { GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/ui_y_01.png", typeof(Sprite)); }
-        else { GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/ui_g_01.png", typeof(Sprite)); }
+        if (b) { GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/ui_y_01"); }
+        else { GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/ui_g_01"); }
     }
 
 }

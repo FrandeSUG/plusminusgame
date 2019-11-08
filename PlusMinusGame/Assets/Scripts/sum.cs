@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
 
 public class sum : MonoBehaviour
 {
@@ -38,11 +37,11 @@ public class sum : MonoBehaviour
     {
         if (the_sum == target.target_number)
         {
-            this.GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon 1024/effect_1024_01.png", typeof(Sprite));
+            this.GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon 1024/effect_1024_01");
         }
         else
         {
-            this.GetComponent<Image>().sprite = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/03. Asset/Flat icoon n UI/icon 1024/effect_1024_02.png", typeof(Sprite));
+            this.GetComponent<Image>().sprite = Resources.Load<Sprite>("03. Asset/Flat icoon n UI/icon 1024/effect_1024_02");
         }
     }
 }

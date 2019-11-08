@@ -51,3 +51,4 @@ MonoBehaviour:
   lifes_score: {fileID: 0}
   game_over: {fileID: 0}
   stage: {fileID: 0}
+  refresh: {fileID: 0}
