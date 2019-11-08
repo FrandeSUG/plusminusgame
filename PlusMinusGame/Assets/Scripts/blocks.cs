@@ -95,7 +95,7 @@ public class blocks : MonoBehaviour
     {
         set_block_unclickabable_array();
         if (game_manager.is_game_over()) { return; }
-        if (target.target_number == sum.the_sum) { lifes_score.calculate_score(combo.count); stage.increment_stage(); }
+        if (target.target_number == sum.the_sum && !has_important()) { lifes_score.calculate_score(combo.count); stage.increment_stage(); }
 
         if (target.target_number != sum.the_sum || has_important())
         {
