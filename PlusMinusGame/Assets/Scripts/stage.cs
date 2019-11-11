@@ -20,13 +20,18 @@ public class stage : MonoBehaviour
     {
         the_stage++;
         GetComponentInChildren<Text>().text = "Stage: " + the_stage.ToString();
-        if(the_stage > 5) { blocks.important_count = 2; }
-        if(the_stage > 8) { blocks.important_count = 3; }
-        if(the_stage > 11) { blocks.important_count = 4; blocks.important_interval = 1; }
-        if(the_stage > 15) { blocks.locked_interval = 2; }
-        if(the_stage >= 18) { blocks.important_count = 5; }
-        if (the_stage > 20) { blocks.locked_interval = 1; }
-        if (the_stage > 21) { blocks.important_count = 6; }
+        blocks.important_count = the_stage / 2;
+        if(blocks.important_count >= 8) { blocks.important_count = 8; }
+        if (the_stage >= 18) { blocks.important_interval = 1; }
+        if (the_stage == 6) { blocks.locked_count = 2; }
+        if (the_stage == 9) { blocks.locked_count = 3; }
+        if (the_stage == 12) { blocks.locked_count = 4; }
+        if (the_stage == 17) { blocks.locked_interval = 1; }
+        if (the_stage == 18) { blocks.locked_count = 0; }
+        if (the_stage == 19) { blocks.locked_count = 4; }
+        if (the_stage == 20) { blocks.locked_count = 0; }
+        if (the_stage == 21) { blocks.locked_count = 4; }
+
 
     }
 

@@ -26,7 +26,8 @@ public class blocks : MonoBehaviour
 
     public float end_buffer_time = 2f;
     public int locked_interval = 3;
-    public int important_interval = 3;
+    public int locked_count = 1; // max 4
+    public int important_interval = 2;
     public int important_count = 1;
     public int hp_drop_rate = 4;
     public int refresh_drop_rate = 4;
@@ -161,7 +162,7 @@ public class blocks : MonoBehaviour
                             block_array[i].hprefresh = block_array[i - 4].hprefresh;
                             block_array[i - 4].activated = true;
                             // Delete locked when reach bottom
-                            if(block_array[i].special == block.SPECIAL.LOCKED && i >= 12) { block_array[i].special = block.SPECIAL.NONE; }
+                            if(block_array[i].special == block.SPECIAL.LOCKED && i >= 12) { block_array[i].activated = true; }
 
                             block_array[i].refresh_number();
                         }
@@ -192,7 +193,7 @@ public class blocks : MonoBehaviour
         // For locked
         if (stage.the_stage % locked_interval == 0)
         {
-            int count = stage.the_stage / locked_interval; if(count >= block_array.Length / 4) { count = block_array.Length / 4; }
+            int count = locked_count;
             int tries_allowed = block_array.Length * 10;
             while (count > 0 && tries_allowed > 0)
             {
