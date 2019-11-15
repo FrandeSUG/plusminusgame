@@ -66,7 +66,7 @@ public class blocks : MonoBehaviour
     {
         for (int i = 0; i < block_array.Length; i++)
         {
-            block_array[i].value = Random.Range(1, 9);
+            block_array[i].value = Random.Range(1, 10);
             block_array[i].special = block.SPECIAL.NONE;
             block_array[i].hprefresh = block.HPREFRESH.NONE;
             block_array[i].refresh_number();
@@ -146,7 +146,7 @@ public class blocks : MonoBehaviour
                     {
                         check_block_hprefresh(block_array[i]);
                         block_array[i].activated = false;
-                        block_array[i].value = Random.Range(1, 9);
+                        block_array[i].value = Random.Range(1, 10);
                         block_array[i].special = block.SPECIAL.NONE;
                         block_array[i].hprefresh = block.HPREFRESH.NONE;
                         block_array[i].refresh_number();

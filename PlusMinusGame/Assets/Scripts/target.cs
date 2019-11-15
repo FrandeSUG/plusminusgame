@@ -16,7 +16,7 @@ public class target : MonoBehaviour
 
     public void generate_target_number()
     {
-        target_number = Random.Range(1, 9);
+        target_number = Random.Range(1, 10);
         transform.Find("TargetNumber").GetComponent<Image>().sprite = Resources.Load<Sprite>("Puzzle stage & settings GUI Pack/Image_red/txt/" + target_number);
     }
 }
