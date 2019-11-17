@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\lifes_score.cs" />
     <Compile Include="Assets\Scripts\master_audio.cs" />
     <Compile Include="Assets\Scripts\refresh.cs" />
+    <Compile Include="Assets\Scripts\sfx.cs" />
     <Compile Include="Assets\Scripts\stage.cs" />
     <Compile Include="Assets\Scripts\start.cs" />
     <Compile Include="Assets\Scripts\sum.cs" />
