@@ -48,7 +48,7 @@ public class timer : MonoBehaviour
         {
             the_timer -= Time.deltaTime;
             transform.Find("Bar").GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, ((the_timer / count_down_timer) * bar_max));
-            if (the_timer <= 0)
+            if (the_timer <= 0 || blocks.all_clicked())
             {
                 count_down_start = false;
                 the_timer = count_down_timer;

@@ -22,6 +22,7 @@ public class blocks : MonoBehaviour
     public AudioClip for_refresh;
     public Image hp_decrement;
     public GameObject perfect;
+    public GameObject nice;
 
     public AudioSource audio;
 
@@ -109,7 +110,8 @@ public class blocks : MonoBehaviour
         {
             audio.clip = for_generate;
             play_particle();
-            if (is_perfect()) { perfect.SetActive(true);Invoke("perfect_off", 0.5f); }
+            if (all_clicked()) { perfect.SetActive(true);Invoke("perfect_off", 0.5f); }
+            else { nice.SetActive(true);Invoke("nice_off", 0.5f); }
         }
         blocks_movement();
         blocks_special();
@@ -124,6 +126,17 @@ public class blocks : MonoBehaviour
     public void play_particle()
     {
         swipe.Play();
+    }
+
+    public bool all_clicked()
+    {
+        int count = 0;
+        for (int i = 0; i < block_array.Length; i++)
+        {
+            if (block_array[i].special != block.SPECIAL.LOCKED) { count++; }
+        }
+        if (combo.count >= count) { return true; }
+        return false;
     }
 
     //Private methods
@@ -141,18 +154,9 @@ public class blocks : MonoBehaviour
         perfect.SetActive(false);
     }
 
-    private bool is_perfect()
+    private void nice_off()
     {
-        int count = 0;
-        for (int i = 0; i < block_array.Length; i++)
-        {
-            if(block_array[i].special != block.SPECIAL.LOCKED) { count++; }
-        }
-        Debug.Log(count);
-        Debug.Log(combo.count);
-        if (combo.count >= count) {return true;}
-        return false; 
-
+        nice.SetActive(false);
     }
 
     private void blocks_movement()
